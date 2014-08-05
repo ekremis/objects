@@ -1,0 +1,104 @@
+// HTML
+<p id='a1'></p>
+<p id='a2'></p>
+<p id='b1'></p>
+<p id='b2'></p>
+<p id='allpizzas'></p>
+
+// JS
+var pizzas = [{
+    "name": "Pepperoni",
+        "ingredients": {
+        "bacon": 0,
+            "cheese": 1,
+            "ham": 0,
+            "onion": 0,
+            "pepperoni": 3,
+            "pineapple": 0,
+            "tomato": 1
+    }
+}, {
+    "name": "FourCheese",
+        "ingredients": {
+        "bacon": 0,
+            "cheese": 4,
+            "ham": 0,
+            "onion": 0,
+            "pepperoni": 0,
+            "pineapple": 0,
+            "tomato": 1
+    }
+}, {
+    "name": "Bacon",
+        "ingredients": {
+        "bacon": 3,
+            "cheese": 1,
+            "ham": 0,
+            "onion": 0,
+            "pepperoni": 0,
+            "pineapple": 0,
+            "tomato": 1
+    }
+}];
+
+// PRINT ALL PIZZAS
+for (var index1 in pizzas) {
+    console.log(index1 + ': ' + pizzas[index1].name);
+}
+
+console.log(pizzas[1].name);
+console.log(pizzas[1].ingredients["bacon"]);
+
+// DELETE A PIZZA ENTRY
+// array.splice(index, numofelements); 
+pizzas.splice(1, 1); // DELETE FourCheese
+console.log(pizzas[1].name);
+console.log(pizzas[1].ingredients["bacon"]);
+
+// PRINT ALL PIZZAS
+for (var index1 in pizzas) {
+    console.log(index1 + ': ' + pizzas[index1].name);
+}
+
+// ADD NEW PIZZA ENTRY
+console.log(pizzas.length);
+pizzas.splice(2, 0, {
+    "name": "FourCheese",
+        "ingredients": {
+        "bacon": 0,
+            "cheese": 4,
+            "ham": 0,
+            "onion": 0,
+            "pepperoni": 0,
+            "pineapple": 0,
+            "tomato": 1
+    }
+}, {
+    "name": "ThreeCheese",
+        "ingredients": {
+        "bacon": 0,
+            "cheese": 3,
+            "ham": 0,
+            "onion": 0,
+            "pepperoni": 0,
+            "pineapple": 0,
+            "tomato": 1
+    }
+});
+
+
+// PRINT ALL PIZZAS
+for (var index1 in pizzas) {
+    console.log(index1 + ': ' + pizzas[index1].name);
+}
+console.log(pizzas[3].ingredients["cheese"]);
+
+// DELETE A PIZZA ENTRY
+pizzas.splice(0, 1); // DELETE Pepperoni
+
+// PRINT ALL PIZZAS
+for (var index1 in pizzas) {
+    console.log(index1 + ': ' + pizzas[index1].name);
+}
+
+// EDIT-UPDATE-MODIFY PIZZA ENTRY

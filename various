@@ -1,0 +1,64 @@
+// HTML
+<p id="txt1"></p>
+<p id="txt2"></p>
+<p id="txt3"></p>
+<p id="txt4"></p>
+
+// JS
+var names = new Array("Thomas", "Dixie", "Mary");
+var colors = ['red', 'green', 'blue'];
+
+document.getElementById('txt1').innerHTML = names[2];
+
+function lpnames(element, index) {
+    document.getElementById("txt2").innerHTML += (index + 1) + ". " + element + "<br>";
+}
+names.forEach(lpnames);
+
+
+var i = 0;
+var total_loops = 0;
+var namei, colori;
+
+var breakloop = function (arg1) {
+    clearInterval(arg1);
+};
+
+var loopfunction = function () {
+    colori = colors[i];
+    namei = names[i];
+    $("#txt1").css("color", colori).html(names[i]);
+    i++;
+    total_loops++;
+    if (i == 3) i = 0;
+    if (total_loops == 6) breakloop(loopinterval);
+};
+
+loopinterval = setInterval(loopfunction, 500);
+
+function a() {
+    return false;
+}
+
+var y = a();
+if (!y) console.log(y);
+
+var places = ['volos', 'thessaloniki', 'athens'];
+// Check if places is array
+function isArray(myArray) {
+    return Object.prototype.toString.call(myArray) === "[object Array]";
+}
+console.log(typeof places);
+console.log(Object.prototype.toString.call(places));
+console.log(isArray(places));
+
+
+function myfunc1() {
+    for (var j = 0; j < places.length; j++) {
+        function closureFunction(item) {
+            console.log(item);            
+        }
+        closureFunction(places[j]);
+    }
+}
+myfunc1();

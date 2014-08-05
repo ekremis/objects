@@ -1,0 +1,69 @@
+// HTML
+<p id="p1"></p>
+<p id="p2"></p>
+<p id="p3"></p>
+<p id="p4"></p>
+<p id="p5"></p>
+
+
+// JAVASCRIPT
+var person = {
+    firstname: "Dixie",
+    lastname: "Tommy",
+    age: 20,
+    eyes: "green"
+}
+
+var person2 = new Object();
+person2.firstname = "Laura";
+person2.lastname = "Gonzales";
+person2.age = 30;
+
+$("#p1").html(person.eyes + " " + person2.age + " " + person["firstname"]);
+
+// The standard way to create an "object prototype" is to use an object constructor function :
+function person3(first, last, age, color) {
+    this.firstname = first;
+    this.lastname = last;
+    this.age = age;
+    this.eyecolor = color;
+
+    this.changeName = function (name) {
+        this.lastname = name;
+    }
+}
+
+// The constructor function is the prototype for the person objects.
+var David = new person3("David", "Grad", 25, "brown");
+David.changeName("Gross");
+
+$("#p2").html(David.firstname.toUpperCase() + " " + David["lastname"] + " " + David["age"] + " " + David.eyecolor);
+
+//add new property to an existing object (not to the prototype)
+David.height = 150;
+
+//use of 'prototype' property to add new properties & methods to an existing prototype
+person3.prototype.nationality = "Greek";
+person3.prototype.showfullname = function () {
+    return this.firstname + " " + this.lastname;
+};
+
+// show David's properties
+for (var index in David) {
+    document.getElementById("p3").innerHTML += index + " ";
+}
+
+$("#p4").html(David.showfullname());
+//document.getElementById("p4").innerHTML = David.showfullname(); 
+
+// toString() returns the function as a string!
+document.getElementById("p5").innerHTML = person3.toString();
+
+//Self-Invoking Functions
+function noselfinvoking() {
+    alert("hello");
+}
+
+(function selfinvoking() {
+    alert("self invoked");
+}) ();

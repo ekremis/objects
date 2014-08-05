@@ -1,0 +1,22 @@
+var A = [1, 4, -1, 3, 2];
+
+function solution(M) 
+{
+    var i = 0;
+    var count = 0;
+    (function myfunc() 
+    {
+        if (M[i] != -1) 
+        {
+            i = M[i];
+            count++;
+            console.log("count= " + count)
+            console.log("next index of list is " + i);
+            myfunc();
+        }
+    }) ();
+    return count;
+   
+}
+
+console.log(solution(A));

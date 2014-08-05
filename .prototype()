@@ -1,0 +1,35 @@
+// Using call to chain constructors for an object
+function Product(name, price) {
+    this.name = name;
+    this.price = price;
+    if (price < 0) console.log("cannot create product: " + name + " with a negative price");
+    return this;
+}
+
+var bread = Product("bread", 10);
+console.log(bread.name + " " + bread.price);
+
+function Food(name, price) {
+    Product.call(this, name, price);
+    this.category = 'food';
+}
+console.log(Food.prototype.constructor.toString()); 
+// constructor == Food
+Food.prototype = Object.create(Product.prototype);
+
+
+function Toy(name, price) {
+    Product.call(this, name, price);
+    this.category = 'toy';
+}
+Toy.prototype = Object.create(Product.prototype);
+
+var cheese = new Food('feta', 5);
+var fun = new Toy('robot', 40);
+
+if (cheese instanceof Food) console.log("Cheese is instanceof Food");
+if (cheese.constructor == Product) console.log("cheese.constructor == Product");
+if (Object.getPrototypeOf(cheese) == Food.prototype) console.log("Object.getPrototypeOf(cheese) == Food.prototype");
+if (fun instanceof Toy) console.log("Fun is instanceof Toy");
+console.log(cheese.name + cheese.price + cheese.category + fun.name + fun.price + fun.category);
+

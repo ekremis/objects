@@ -1,0 +1,27 @@
+var k = ['a', 'b', 'c', 'd'];
+
+// array
+for (var index in k)
+    console.log(index);
+
+
+var kk = {
+    name: 'dixie',
+    age: 20,
+    show: function() { return true; }
+}
+
+// object
+for (var index2 in kk)
+{
+    console.log(index2); // show object elements AND their values 
+}
+
+// object
+for (var index3 in kk)
+{
+    console.log(kk[index3]); //show ONLY the values of elements
+}
+
+//console.log(kk.name);
+//console.log(kk["age"]);

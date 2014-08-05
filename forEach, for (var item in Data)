@@ -1,0 +1,16 @@
+// HTML
+<span id="output"></span>
+<br>
+<span id="output2"></span>
+
+// JS
+var friends = ["Mike", "Stacy", "Andy", "Rick"];
+friends.forEach(function (element, index){
+document.getElementById("output").innerHTML += (index+1) + ". " + element + "<br>";
+});
+
+
+for (var index in friends) 
+{
+   document.getElementById("output2").innerHTML += index + ": " + friends[index] + "<br>";
+}

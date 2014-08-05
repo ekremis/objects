@@ -1,0 +1,50 @@
+// HTML
+<p id='p1'></p>
+<p id='p2'></p>
+<p id='p3'></p>
+<p id='p4'></p>
+<p id='p5'></p>
+
+// JS
+var getArray = function (array) {
+    var sum = 0;
+    for (var i = 0; i < array.length; i++) {
+        // check for typeof array elements
+        if (typeof (array[i]) !== "number") break;
+        sum += array[i];
+    }
+    return sum;
+};
+
+var getArray2 = function (array) {
+    var sum = 0;
+    for (var i = 0; i < array.length; i++) {
+        // without check for typeof array elements
+        sum += array[i];
+    }
+    return sum;
+};
+
+var x1 = [1, 2, 3, 4];
+var sum = getArray(x1);
+document.getElementById("p1").innerHTML = sum;
+
+var x2 = [1, 2, null, null, '4', 2, false];
+var sum2 = getArray(x2);
+document.getElementById("p2").innerHTML = sum2;
+
+var sum3 = getArray2(x2);
+document.getElementById("p3").innerHTML = sum3;
+
+//alternative....//
+var sum4 = 0;
+for (var index in x1) {
+    sum4 += x1[index];
+}
+document.getElementById("p4").innerHTML = sum4;
+
+var sum5 = 0;
+for (var item in x2) {
+    sum5 += x2[item];
+}
+document.getElementById("p5").innerHTML = sum5;

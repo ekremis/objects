@@ -1,0 +1,43 @@
+//create new object
+k = Object.create(null); // create object with null as prototype
+o = Object.create(Object.prototype);
+if (Object.getPrototypeOf(o) == Object.prototype) console.log("YES");
+console.log(typeof o);
+console.log(typeof k);
+
+var p = {
+    foo: {
+        value: "hello",
+        color: "orange",
+        city: "thessaloniki"
+    }
+};
+console.log(typeof p);
+console.log(p.foo.city);
+
+//prototype.constructor
+
+var b = {};
+if(b.constructor === Object) console.log("ok"); 
+
+var a = [];
+if(a.constructor === Array)  console.log("ok1"); // true
+
+var n = new Number(3);
+if(n.constructor === Number) console.log("ok2"); // true
+
+//example with .constructor
+function Tree (name) {
+   this.name = name;
+}
+
+var theTree = new Tree( "Redwood" );
+console.log( "theTree.constructor is " + theTree.constructor );
+
+var num = new Number(144);
+console.log("num.constructor() is : " + num.constructor); 
+
+var value = Math.ceil(45.95);
+console.log(value); 
+
+
